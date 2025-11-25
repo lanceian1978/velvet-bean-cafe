@@ -1,48 +1,62 @@
 import React from 'react';
+import Image from 'next/image';
 
 const highlights = [
   {
-    title: 'Slow Bar Rituals',
-    description: 'Single-origin pours and tasting flights guided by our baristas.',
+    title: 'The Pour Bar',
+    description: 'Hand brewed single origins, signature pour overs, and curated tasting flights.',
   },
   {
-    title: 'Morning Bakery',
-    description: 'Cardamom buns, burnt-honey croissants, and gluten-free bites.',
+    title: 'Morning Sips',
+    description: 'Bright, balanced brews crafted to start the day light roasts, gentle blends, and smooth espresso profiles.',
   },
   {
-    title: 'Evening Groove',
-    description: 'Live acoustic sets every Thursday with candle-lit seating.',
+    title: 'After-Dusk Live',
+    description: 'Thursday acoustic sessions paired with soft lighting and cozy evening atmosphere.',
   },
 ];
 
 const menuItems = [
   { name: 'Velvet Latte', notes: 'Smooth espresso blended with oat milk and a touch of natural sweetness.', price: 190 },
-  { name: 'Midnight Cold Brew', notes: '18-hour slow-steeped brew with deep cocoa notes with a fresh orange twist.t', price: 150 },
+  { name: 'Midnight Cold Brew', notes: '18-hour slow-steeped brew with deep cocoa notes and a fresh orange twist.', price: 150 },
   { name: 'Spanish Latte', notes: 'Rich espresso balanced with creamy milk and a caramelized sugar sweetness.', price: 250 },
-  { name: 'Caramel Macchiato', notes: 'Layered espresso with steamed milk and vanilla, topped with buttery caramel.', price:220 },
+  { name: 'Caramel Macchiato', notes: 'Layered espresso with steamed milk and vanilla, topped with buttery caramel.', price: 220 },
 ];
 
 const testimonials = [
-  { quote: 'Feels like a warm hug with impeccable taste.', author: 'Lance I.' },
-  { quote: 'Coffee with soul. Their playlists are as good as the pours.', author: 'Ian L.' },
+  { quote: 'Feels like a warm hug with strong taste.', author: 'Lance I.' },
+  { quote: 'Coffee with soul. Their playlists are as good as the pours.', author: 'Ryan L.' },
+];
+
+const featuredPhotos = [
+  { src: '/images/velvet_latte.jpg', caption: 'Velvet Latte - crema in full bloom' },
+  { src: '/images/spanish_latte.JPG', caption: 'Spanish Latte - golden drizzle delight' },
+  { src: '/images/caramel_macchiato.jpg', caption: 'Caramel Macchiato - sweet caramel hug' },
+  { src: '/images/cold-brew.jpg', caption: 'Cold Brew - deep, smooth, slow-steeped' },
 ];
 
 export default function HomePage() {
   return (
     <>
       <section className="hero">
-        <p className="hero-tag">Artful coffee, kind people.</p>
-        <h2 className="hero-title">Welcome to VELVET BEAN,  where every cup feels like home</h2>
-        <p className="hero-copy">
-        From farm to cup, we carefully select our beans, roast them with heart, and serve them with love.
-        </p>
-        <div className="hero-actions">
-          <button className="cta-button" type="button">
-            Order Ahead
-          </button>
-          <button className="ghost-button" type="button">
-            View Seasonal Menu
-          </button>
+        <div className="hero-content">
+          <p className="hero-tag">Artful coffee, kind people.</p>
+          <h2 className="hero-title">Welcome to Velvet Bean, where every cup feels like home.</h2>
+          <p className="hero-copy">
+            From farm to cup, we carefully select our beans, roast them with heart, and serve them with love.
+            Slide into a sunlit booth, linger by the slow bar, and savor pours made just for you.
+          </p>
+        </div>
+        <div className="hero-media">
+          <Image
+            src="/images/velvet_latte.jpg"
+            alt="Freshly poured velvet latte"
+            width={520}
+            height={520}
+            className="hero-image"
+            priority
+          />
+          <span className="hero-media-caption">Velvet latte with raw panela and oat milk</span>
         </div>
       </section>
 
@@ -67,10 +81,19 @@ export default function HomePage() {
                 <p className="menu-name">{item.name}</p>
                 <p className="menu-notes">{item.notes}</p>
               </div>
-              <span className="menu-price">${item.price}</span>
+              <span className="menu-price">₱{item.price.toLocaleString('en-PH')}</span>
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="featured-images">
+        {featuredPhotos.map((photo) => (
+          <figure key={photo.src} className="featured-card">
+            <Image src={photo.src} alt={photo.caption} width={520} height={380} />
+            <figcaption>{photo.caption}</figcaption>
+          </figure>
+        ))}
       </section>
 
       <section className="testimonials">

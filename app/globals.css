@@ -121,8 +121,37 @@ main {
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.hero-content {
+  flex: 1 1 320px;
+  display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.hero-media {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 45px rgba(33, 17, 6, 0.15);
+  object-fit: cover;
+}
+
+.hero-media-caption {
+  font-size: 0.85rem;
+  color: var(--slate);
 }
 
 .hero-tag {
@@ -274,6 +303,32 @@ main {
   font-style: normal;
 }
 
+.featured-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.featured-card {
+  background: white;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 35px rgba(36, 18, 6, 0.08);
+  overflow: hidden;
+}
+
+.featured-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.featured-card figcaption {
+  padding: 18px 22px 24px;
+  color: var(--slate);
+}
+
 .visit-panel {
   background: var(--foam);
   border-radius: 28px;
@@ -297,5 +352,13 @@ main {
 
   .hero {
     padding: 36px 28px;
+  }
+
+  .hero-media {
+    order: -1;
+  }
+
+  .hero-image {
+    aspect-ratio: 4 / 3;
   }
 }

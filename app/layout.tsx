@@ -25,9 +25,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="#menu">Menu</a>
               <a href="#visit">Visit</a>
             </nav>
-            <button className="cta-button" type="button">
-              Reserve
-            </button>
           </header>
           <main>{children}</main>
           <footer className="site-footer">
