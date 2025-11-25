@@ -93,18 +93,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-visit-preview">
-        <div className="visit-panel">
-          <p className="section-label">Visit</p>
-          <h3>Lopez Jaena Street, Iloilo City</h3>
-          <p>Daily · 7am - 10pm</p>
-          <p>Walk-ins welcome · Limited reservations for groups of 4+</p>
-        </div>
-        <div className="preview-footer">
-          <Link href="/visit" className="ghost-button">Get Directions</Link>
-        </div>
-      </section>
-
       <section className="featured-images">
         {featuredPhotos.map((photo) => (
           <figure key={photo.src} className="featured-card">
@@ -117,10 +105,22 @@ export default function HomePage() {
       <section className="testimonials">
         {testimonials.map((entry) => (
           <blockquote key={entry.author}>
-            <p>“{entry.quote}”</p>
+            <p>"{entry.quote}"</p>
             <cite>— {entry.author}</cite>
           </blockquote>
         ))}
+      </section>
+
+      <section className="home-visit-preview">
+        <div className="visit-panel">
+          <p className="section-label">Visit</p>
+          <h3>Lopez Jaena Street, Iloilo City</h3>
+          <p>Daily · 7am - 10pm</p>
+          <p>Walk-ins welcome · Limited reservations for groups of 4+</p>
+        </div>
+        <div className="preview-footer">
+          <Link href="/visit" className="ghost-button">Get Directions</Link>
+        </div>
       </section>
     </>
   );
