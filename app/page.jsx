@@ -1,27 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 
-const highlights = [
-  {
-    title: 'The Pour Bar',
-    description: 'Hand brewed single origins, signature pour overs, and curated tasting flights.',
-  },
-  {
-    title: 'Morning Sips',
-    description: 'Bright, balanced brews crafted to start the day light roasts, gentle blends, and smooth espresso profiles.',
-  },
-  {
-    title: 'After-Dusk Live',
-    description: 'Thursday acoustic sessions paired with soft lighting and cozy evening atmosphere.',
-  },
-];
-
-const menuItems = [
-  { name: 'Velvet Latte', notes: 'Smooth espresso blended with oat milk and a touch of natural sweetness.', price: 190 },
-  { name: 'Midnight Cold Brew', notes: '18-hour slow-steeped brew with deep cocoa notes and a fresh orange twist.', price: 150 },
-  { name: 'Spanish Latte', notes: 'Rich espresso balanced with creamy milk and a caramelized sugar sweetness.', price: 250 },
-  { name: 'Caramel Macchiato', notes: 'Layered espresso with steamed milk and vanilla, topped with buttery caramel.', price: 220 },
-];
 
 const testimonials = [
   { quote: 'Feels like a warm hug with strong taste.', author: 'Lance I.' },
@@ -60,32 +39,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="story" className="card-grid">
-        {highlights.map((item) => (
-          <article key={item.title} className="info-card">
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </article>
-        ))}
-      </section>
-
-      <section id="menu" className="menu-panel">
-        <div>
-          <p className="section-label">Signature Sips</p>
-          <h3>Curated coffee with a culinary touch.</h3>
-        </div>
-        <ul className="menu-list">
-          {menuItems.map((item) => (
-            <li key={item.name} className="menu-item">
-              <div>
-                <p className="menu-name">{item.name}</p>
-                <p className="menu-notes">{item.notes}</p>
-              </div>
-              <span className="menu-price">₱{item.price.toLocaleString('en-PH')}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
 
       <section className="featured-images">
         {featuredPhotos.map((photo) => (
@@ -103,12 +56,6 @@ export default function HomePage() {
             <cite>— {entry.author}</cite>
           </blockquote>
         ))}
-        <div id="visit" className="visit-panel">
-          <p className="section-label">Visit</p>
-          <h3>Lopez Jaena Street, Iloilo City</h3>
-          <p>Daily · 7am - 10pm</p>
-          <p>Walk-ins welcome · Limited reservations for groups of 4+</p>
-        </div>
       </section>
     </>
   );
