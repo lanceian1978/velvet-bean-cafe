@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 const testimonials = [
@@ -12,6 +13,23 @@ const featuredPhotos = [
   { src: '/images/spanish_latte.JPG', caption: 'Spanish Latte - golden drizzle delight' },
   { src: '/images/caramel_macchiato.jpg', caption: 'Caramel Macchiato - sweet caramel hug' },
   { src: '/images/cold-brew.jpg', caption: 'Cold Brew - deep, smooth, slow-steeped' },
+];
+
+const storyHighlights = [
+  {
+    title: 'The Pour Bar',
+    description: 'Hand brewed single origins, signature pour overs, and curated tasting flights.',
+  },
+  {
+    title: 'Morning Sips',
+    description: 'Bright, balanced brews crafted to start the day light roasts, gentle blends, and smooth espresso profiles.',
+  },
+];
+
+const menuPreview = [
+  { name: 'Velvet Latte', price: 190 },
+  { name: 'Spanish Latte', price: 250 },
+  { name: 'Caramel Macchiato', price: 220 },
 ];
 
 export default function HomePage() {
@@ -39,6 +57,53 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="home-story-preview">
+        <div className="preview-header">
+          <p className="section-label">Our Story</p>
+          <h3>What makes us special</h3>
+        </div>
+        <div className="card-grid">
+          {storyHighlights.map((item) => (
+            <article key={item.title} className="info-card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="preview-footer">
+          <Link href="/story" className="ghost-button">View Full Story</Link>
+        </div>
+      </section>
+
+      <section className="home-menu-preview">
+        <div className="preview-header">
+          <p className="section-label">Signature Sips</p>
+          <h3>Curated coffee with a culinary touch</h3>
+        </div>
+        <ul className="menu-preview-list">
+          {menuPreview.map((item) => (
+            <li key={item.name} className="menu-preview-item">
+              <span className="menu-name">{item.name}</span>
+              <span className="menu-price">₱{item.price.toLocaleString('en-PH')}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="preview-footer">
+          <Link href="/menu" className="ghost-button">View Full Menu</Link>
+        </div>
+      </section>
+
+      <section className="home-visit-preview">
+        <div className="visit-panel">
+          <p className="section-label">Visit</p>
+          <h3>Lopez Jaena Street, Iloilo City</h3>
+          <p>Daily · 7am - 10pm</p>
+          <p>Walk-ins welcome · Limited reservations for groups of 4+</p>
+        </div>
+        <div className="preview-footer">
+          <Link href="/visit" className="ghost-button">Get Directions</Link>
+        </div>
+      </section>
 
       <section className="featured-images">
         {featuredPhotos.map((photo) => (

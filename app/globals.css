@@ -336,6 +336,74 @@ main {
   border: 1px dashed var(--border);
 }
 
+.home-story-preview,
+.home-menu-preview,
+.home-visit-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.preview-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preview-header .section-label {
+  color: var(--caramel);
+}
+
+.preview-header h3 {
+  font-size: 1.8rem;
+}
+
+.preview-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.home-menu-preview {
+  background: var(--foam);
+  border-radius: 32px;
+  padding: 40px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.menu-preview-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-preview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.menu-preview-item:last-child {
+  border-bottom: none;
+}
+
+.menu-preview-item .menu-name {
+  color: var(--bean);
+}
+
+.menu-preview-item .menu-price {
+  color: var(--caramel);
+  font-weight: 600;
+}
+
+.home-visit-preview {
+  align-items: center;
+}
+
 .site-footer {
   text-align: center;
   color: var(--slate);
